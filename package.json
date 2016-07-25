@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/andrew310/crmbtrl/issues"
   },
-  "homepage": "https://github.com/andrew310/crmbtrl#readme"
+  "homepage": "https://github.com/andrew310/crmbtrl#readme",
+  "dependencies": {
+    "webpack": "^1.13.1"
+  }
 }
