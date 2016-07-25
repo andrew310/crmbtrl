@@ -1,0 +1,19 @@
+{
+  "name": "crmbtrl",
+  "version": "1.0.0",
+  "description": "front end from the crumb trail project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew310/crmbtrl.git"
+  },
+  "author": "andrew brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrew310/crmbtrl/issues"
+  },
+  "homepage": "https://github.com/andrew310/crmbtrl#readme"
+}
