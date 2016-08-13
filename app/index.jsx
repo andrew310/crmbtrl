@@ -1,10 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+const Input = require('./form.js');
+
 class App extends React.Component {
     render(){
         return (
-            <p>React Rocks!</p>
+            <div>
+              <Input />
+              <p>React Rocks!</p>
+            </div>
         );
     }
 }
