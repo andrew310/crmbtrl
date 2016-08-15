@@ -17,20 +17,26 @@
     "url": "https://github.com/andrew310/crmbtrl/issues"
   },
   "homepage": "https://github.com/andrew310/crmbtrl#readme",
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "react-hot-loader": "^1.3.0"
+  },
+  "dependencies": {
     "css-loader": "^0.23.1",
+    "mobx": "^2.4.3",
+    "mobx-react": "^3.5.5",
     "node-sass": "^3.8.0",
     "normalize-css": "^2.3.1",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^0.9.1",
     "react": "^15.2.1",
     "react-addons-css-transition-group": "^15.3.0",
+    "react-addons-update": "^15.3.0",
     "react-dom": "^15.2.1",
-    "react-hot-loader": "^1.3.0",
     "react-toolbox": "^1.1.2",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
