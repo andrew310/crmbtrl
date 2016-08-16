@@ -17,23 +17,25 @@ var styles = {
   render () {
       return (
         <div>
-          <section>
-            <Card raised='true' style={{width: '400px'}}>
-            
+          <div class="mdl-grid">
+            <div >
+            <Card raised='true'>
+
               <CardTitle title='New Crumb' />
 
               <CardText>
-              <Input type='text' label='Url' name='name' value={this.props.store.name} onChange={this.handleNameChange.bind(this, 'name')} />
-              <Input type='text' label='Description' name='description' multiline='true' value={this.props.store.description} onChange={this.handleDescriptionChange.bind(this, 'description')}/>
+              <Input type='text' icon='link' label='Url' name='name' value={this.props.store.name} onChange={this.handleNameChange.bind(this, 'name')} />
+              <Input type='text' icon='edit' label='Description' name='description' multiline='true' value={this.props.store.description} onChange={this.handleDescriptionChange.bind(this, 'description')}/>
               </CardText>
 
               <CardActions >
-                <Button icon='add' label='Save Crumb' raised primary />
-                <Button icon='cancel' label='Cancel' lat />
+                <Button icon='add' label='Save Crumb' raised accent />
+                <Button icon='cancel' label='Cancel' flat />
               </CardActions>
 
             </Card>
-          </section>
+            </div>
+          </div>
         </div>
       );
   }

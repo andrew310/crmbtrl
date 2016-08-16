@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import { observable } from 'mobx';
-
+import { Layout, AppBar, Navigation } from 'react-toolbox';
+import theme from './theme/AppBar.scss';
 
 const Input = require('./form.js');
 
@@ -21,11 +22,15 @@ appState.setDescription = function(d){
 class App extends React.Component {
     render(){
         return (
-            <div>
-            <section>
-              <Input store={appState}/>
+          <Layout>
+            <AppBar theme={theme} fixed>
+              <div>crmbtrl</div>
+              <Navigation />
+            </AppBar>
+            <section style={{'padding-top': '100px'}}>
+            <Input store={appState}/>
             </section>
-            </div>
+          </Layout>
         );
     }
 }
