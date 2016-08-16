@@ -1,41 +1,50 @@
 const path = require('path');
-
-const APP_DIR = path.resolve(__dirname, 'app');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: [
-      'webpack-dev-server/client?http://127.0.0.1:8080',
-      'webpack/hot/only-dev-server',
-      APP_DIR + '/index.jsx',
-
-    ],
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
-    },
-    module: {
-        loaders: [
-            {
-                test: /(\.js|\.jsx)$/,
-                exclude: /(node_modules)/,
-                loaders: ['react-hot', 'babel']
-            },
-            {
-              test: /(\.scss|\.css)$/,
-              loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
-            }
-        ]
-    },
-    resolve: {
-      extensions: ['', '.js', '.jsx', '.json', '.scss'],
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-      noInfo: true,
-      hot: true,
-      inline: true,
-      contentBase: "./build",
-      historyApiFallback: true
-    },
-    plugins: []
+  context: __dirname,
+  devtool: 'inline-source-map',
+  entry: [
+    'webpack-hot-middleware/client',
+    './app/client.js'
+  ],
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
+  resolve: {
+    extensions: ['', '.scss', '.css', '.js', '.json'],
+    modulesDirectories: [
+      'node_modules',
+      path.resolve(__dirname, './node_modules')
+    ]
+  },
+  module: {
+    loaders: [
+      {
+        test: /(\.js|\.jsx)$/,
+        exclude: /(node_modules)/,
+        loader: 'babel'
+        }, {
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+      }
+    ]
+  },
+  postcss: [autoprefixer],
+  sassLoader: {
+    data: '@import "theme/_config.scss";',
+    includePaths: [path.resolve(__dirname, './app')]
+  },
+  plugins: [
+    new ExtractTextPlugin('react-toolbox.css', { allChunks: true }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
+  ]
 };
